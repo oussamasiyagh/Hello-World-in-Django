@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+<!doctype html>
+{% load static %}
 <html lang="en">
   <head>
     <!-- Required meta tags -->
@@ -13,8 +14,9 @@
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
     />
+
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="{% static './css/main.css' %}" />
 
     <!-- Fonts & Icons -->
     <link
@@ -54,7 +56,7 @@
     <div class="container main-part">
       <!-- Card for details -->
       <div class="card my-2 mx-2 boy-card">
-        <img src="https://placeimg.com/230/130/people" class="img-fluid" />
+        <img src="{% static './images/boy.png' %}" class="img-fluid" />
         <div class="card-header">
           <a href="detail.html" class="text-white header-link"
             ><i class="fas fa-mars mr-2"></i> John Wood</a
@@ -75,7 +77,7 @@
       <!-- Card for details ends -->
 
       <div class="card my-2 mx-2 girl-card">
-        <img src="https://placeimg.com/230/130/people" class="img-fluid" />
+        <img src="{% static './images/girl.png' %}" class="img-fluid" />
         <div class="card-header">
           <a href="detail.html" class="text-white header-link"
             ><i class="fas fa-venus mr-2"></i> June Pink</a
