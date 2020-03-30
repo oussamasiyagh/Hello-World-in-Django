@@ -8,5 +8,5 @@ class ContactAdmin(admin.ModelAdmin):
     list_display = ('name', 'email', 'gender', 'info', 'phone')
 
 
-admin.site.register(Contact)
+admin.site.register(Contact, ContactAdmin)
 admin.site.unregister(Group)
