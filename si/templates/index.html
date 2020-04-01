@@ -11,47 +11,71 @@ My Contacts
       <hr />
     </div>
     <div class="container main-part">
-      <!-- Card for details -->
+        {% if contacts %}
+
+        {% for contact in contacts %}
+        {% if contact.gender == 'male' %}
+
+        <!-- Card for details -->
       <div class="card my-2 mx-2 boy-card">
-        <img src="{% static './images/boy.png' %}" class="img-fluid" />
+        <img src="{% if contact.image %}
+        {{contact.image.url}}
+        {% else %}
+        {% static './images/boy.png' %}
+        {% endif %}" class="img-fluid" />
         <div class="card-header">
           <a href="detail.html" class="text-white header-link"
-            ><i class="fas fa-mars mr-2"></i> John Wood</a
-          >
+            ><i class="fas fa-mars mr-2"></i> {{contact.name}} </a>
         </div>
         <div class="card-body pb-0">
           <p>
             <i class="fas fa-at mr-2"></i>
-            <a href="mailto:samirphuyal65@gmail.com">johnwood@gmail.com</a>
+            <a href="mailto:{{contact.email}}">{{contact.email}}</a>
           </p>
           <p>
             <i class="fas fa-phone mr-2"></i>
-            <a href="tel:9001010100">9001010100</a>
+            <a href="tel:{{contact.phone}}">{{contact.phone}}</a>
           </p>
           <p><i class="fas fa-info-circle mr-2"></i> Friend</p>
         </div>
       </div>
       <!-- Card for details ends -->
 
-      <div class="card my-2 mx-2 girl-card">
-        <img src="{% static './images/girl.png' %}" class="img-fluid" />
+
+        {% else %}
+        <div class="card my-2 mx-2 girl-card">
+        <img src="{% if contact.image %}
+        {{contact.image.url}}
+        {% else %}
+        {% static './images/girl.png' %}
+        {% endif %}" class="img-fluid" />
         <div class="card-header">
           <a href="detail.html" class="text-white header-link"
-            ><i class="fas fa-venus mr-2"></i> June Pink</a
+            ><i class="fas fa-venus mr-2"></i> {{contact.name}}</a
           >
         </div>
         <div class="card-body pb-0">
           <p>
             <i class="fas fa-at mr-2"></i>
-            <a href="mailto:pinkjune@gmail.com">pinkjune@gmail.com</a>
+            <a href="mailto:{{contact.email}}">{{contact.email}}</a>
           </p>
           <p>
             <i class="fas fa-phone mr-2"></i>
-            <a href="tel:9819090909">9819090909</a>
+            <a href="tel:{{contact.phone}}">{{contact.phone}}</a>
           </p>
           <p><i class="fas fa-info-circle mr-2"></i> Friend</p>
         </div>
       </div>
+
+        {% endif %}
+
+        {% endfor %}
+
+        {% else %}
+        <p>No contacts</p>
+        {% endif %}
+
+
     </div>
     <!-- Main Section ends-->
 
