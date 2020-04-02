@@ -10,7 +10,7 @@
         {% static './images/boy.png' %}
         {% endif %}" class="img-fluid" />
         <div class="card-header">
-          <a href="detail.html" class="text-white header-link"
+          <a href="{% url 'detail' contact.id %}" class="text-white header-link"
             ><i class="fas fa-mars mr-2"></i> {{contact.name}} </a>
         </div>
         <div class="card-body pb-0">
@@ -36,7 +36,7 @@
         {% static './images/girl.png' %}
         {% endif %}" class="img-fluid" />
         <div class="card-header">
-          <a href="detail.html" class="text-white header-link"
+          <a href="{% url 'detail' contact.id %}" class="text-white header-link"
             ><i class="fas fa-venus mr-2"></i> {{contact.name}}</a
           >
         </div>
