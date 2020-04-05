@@ -13,47 +13,17 @@
     </div>
 
     <div class="container main-part">
-      <!-- Card for details -->
-      <div class="card my-2 mx-2 boy-card">
-        <img src="https://placeimg.com/230/130/people" class="img-fluid" />
-        <div class="card-header">
-          <a href="detail.html" class="text-white header-link"
-            ><i class="fas fa-mars mr-2"></i> John Wood</a
-          >
-        </div>
-        <div class="card-body pb-0">
-          <p>
-            <i class="fas fa-at mr-2"></i>
-            <a href="mailto:samirphuyal65@gmail.com">johnwood@gmail.com</a>
-          </p>
-          <p>
-            <i class="fas fa-phone mr-2"></i>
-            <a href="tel:9001010100">9001010100</a>
-          </p>
-          <p><i class="fas fa-info-circle mr-2"></i> Friend</p>
-        </div>
-      </div>
-      <!-- Card for details ends -->
+      {% if contacts %}
 
-      <div class="card my-2 mx-2 girl-card">
-        <img src="https://placeimg.com/230/130/people" class="img-fluid" />
-        <div class="card-header">
-          <a href="detail.html" class="text-white header-link"
-            ><i class="fas fa-venus mr-2"></i> June Pink</a
-          >
-        </div>
-        <div class="card-body pb-0">
-          <p>
-            <i class="fas fa-at mr-2"></i>
-            <a href="mailto:pinkjune@gmail.com">pinkjune@gmail.com</a>
-          </p>
-          <p>
-            <i class="fas fa-phone mr-2"></i>
-            <a href="tel:9819090909">9819090909</a>
-          </p>
-          <p><i class="fas fa-info-circle mr-2"></i> Friend</p>
-        </div>
-      </div>
+        {% for contact in contacts %}
+
+        {% include 'partials/_card.html' %}
+
+        {% endfor %}
+
+        {% else %}
+        <p>No search results!</p>
+        {% endif %}
     </div>
     <!-- Main Section ends-->
 
