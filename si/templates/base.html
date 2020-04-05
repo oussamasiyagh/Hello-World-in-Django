@@ -27,6 +27,10 @@
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
     />
+    <link
+      rel="title icon"
+      href="{% static 'images/contact.png' %}"
+    />
     <title>
         {% block title %}
 
@@ -38,16 +42,21 @@
 
     <nav>
       <a class="logo" href="{% url 'home' %}">
-        <i class="fas fa-user-circle"></i>&nbsp;Contacts
+        <i class="fas fa-user-circle"></i>&nbsp; Contacts
       </a>
+      <p class="feature-link m-0 p-0">
+      <a href="#" class="mr-4 text-white">
+      <i class="fas fa-plus"></i>&nbsp; Add Contact
+      </a>
+      </p>
       <form class="form-inline my-2" action="{% url 'search' %}"  method="GET">
         <input
-          class="form-control"
+          class="form-control search- box "
           type="text"
           placeholder="Find contacts..."
           name="search_term"
         />
-        <button class="btn" type="submit"><i class="fas fa-search"></i></button>
+
       </form>
     </nav>
     <!-- Navbar ends -->
