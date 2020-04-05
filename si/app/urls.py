@@ -9,5 +9,5 @@ urlpatterns = [
     path('search/', views.search, name="search"),
     path('contacts/create', views.ContactCreateView.as_view(), name="create"),
     path('contacts/update/<int:pk>', views.ContactUpdateView.as_view(), name="update"),
-
+    path('contacts/delete/<int:pk>', views.ContactDeleteView.as_view(), name="delete"),
 ]
