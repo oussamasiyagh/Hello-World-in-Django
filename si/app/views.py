@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Contact
 from django.views.generic import ListView, DetailView
+from django.db.models import Q
 
 
 # Create your views here.
@@ -31,7 +32,12 @@ class ContactDetailView(DetailView):
 def search(request):
     if request.GET:
         search_term = request.GET['search_term']
-        search_results = Contact.objects.filter(name__icontains=search_term)
+        search_results = Contact.objects.filter(
+            Q(name__icontains=search_term)|
+            Q(email__icontains=search_term)|
+            Q(info__icontains=search_term)|
+            Q(phone__iexact=search_term) 
+        )
         context = {
             'search_term': search_term,
             'contacts': search_results
