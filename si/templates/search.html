@@ -1,14 +1,14 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block title %}
-  Search Results
+  Search Results for {{search_term}}
 {% endblock title %}
 
 {% block content %}
 
     <!-- Main Section -->
     <div class="container">
-      <h3 class="heading font-weight-light">Search results for "friend"</h3>
+      <h3 class="heading font-weight-light">Search results for "{{search_term}}"</h3>
       <hr />
     </div>
 
