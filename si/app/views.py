@@ -7,7 +7,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse_lazy
-
+from django.contrib import messages
 
 # Create your views here.
 # def home(request):
@@ -66,6 +66,7 @@ class ContactCreateView(LoginRequiredMixin, CreateView):
         instance = form.save(commit=False)
         instance.manager=self.request.user
         instance.save()
+        messages.success(self.request, "Your contact has been seccessfuly created!")
         return redirect('home')
 
 
@@ -76,6 +77,7 @@ class ContactUpdateView(LoginRequiredMixin, UpdateView):
 
     def form_valid(self, form):
         instance = form.save()
+        messages.success(self.request, "Your contact has been seccessfuly updated!")
         return redirect('detail', instance.pk)
 
 
@@ -84,6 +86,9 @@ class ContactDeleteView(LoginRequiredMixin, DeleteView):
     template_name = 'delete.html'
     success_url = '/'
 
+    def delete(self, request, *args, **kwargs):
+        messages.success(self.request, "Your contact has been seccessfuly deleted!")
+        return super().delete(self, request, *args, **kwargs)
 
 class SignUpView(CreateView):
     form_class = UserCreationForm
