@@ -3,7 +3,7 @@ from .models import Contact
 from django.views.generic import ListView, DetailView
 from django.db.models import Q
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-
+from django.contrib.auth.forms import UserCreationForm
 
 # Create your views here.
 # def home(request):
@@ -68,3 +68,8 @@ class ContactDeleteView(DeleteView):
     model = Contact
     template_name = 'delete.html'
     success_url = '/'
+
+class SignUpView(CreateView):
+    form_class = UserCreationForm
+    template_name = 'registration/signup.html'
+    success_url = 'home '
